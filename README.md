@@ -2,7 +2,7 @@
 # All Deployment Errors Fixed & Still Under Maintenance.
 <div align="center">
   <a href="https://git.io/typing-svg"> 
-    <a src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=00F74D&width=435&lines=🤖+Welcome+to+StackGPT+Bot;⚡+AI+Powered+WhatsApp+Assistant;🎮+Tech+Cards+%26+Relics+Game+System;📥+Media+Downloaders+%7C+Group+Tools;🌍+Multi-Session+Pairing+Support" alt="Typing SVG" />
+    <a href="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=00F74D&width=435&lines=🤖+Welcome+to+StackGPT+Bot;⚡+AI+Powered+WhatsApp+Assistant;🎮+Tech+Cards+%26+Relics+Game+System;📥+Media+Downloaders+%7C+Group+Tools;🌍+Multi-Session+Pairing+Support" alt="Typing SVG" />
   </a> 
 </div>
 
