@@ -133,11 +133,7 @@ async function startStackGPTInc() {
                 console.error("Error in handleMessages:", err)
                 if (mek.key && mek.key.remoteJid) {
                     await StackGPTInc.sendMessage(mek.key.remoteJid, { 
-                        text: '❌ An error occurred while processing your message.',
-                        contextInfo: {
-                            forwardingScore: 1,
-                            isForwarded: true
-                        }
+                        text: '❌ An error occurred while processing your message.'
                     }).catch(console.error);
                 }
             }
@@ -182,6 +178,7 @@ async function startStackGPTInc() {
     StackGPTInc.public = true
     StackGPTInc.serializeM = (m) => smsg(StackGPTInc, m, store)
 
+    // Handle pairing code
     if (pairingCode && !StackGPTInc.authState.creds.registered) {
         if (useMobile) throw new Error('Cannot use pairing code with mobile api')
 
@@ -189,13 +186,13 @@ async function startStackGPTInc() {
         if (!!global.phoneNumber) {
             phoneNumber = global.phoneNumber
         } else {
-            phoneNumber = await question(chalk.bgBlack(chalk.greenBright(`Please type your WhatsApp number 🤖\nFormat: 2348012345678 : `)))
+            phoneNumber = await question(chalk.bgBlack(chalk.greenBright(`Please type your WhatsApp number 🤖\nFormat: 2348012345678 (without + or spaces) : `)))
         }
-        phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
 
+        phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
         const pn = require('awesome-phonenumber');
         if (!pn('+' + phoneNumber).isValid()) {
-            console.log(chalk.red('❌ Invalid phone number. Please enter your full international number'))
+            console.log(chalk.red('❌ Invalid phone number.'))
             process.exit(1);
         }
 
@@ -210,24 +207,18 @@ async function startStackGPTInc() {
         }, 3000)
     }
 
+    // Connection handling
     StackGPTInc.ev.on('connection.update', async (s) => {
         const { connection, lastDisconnect } = s
         if (connection == "open") {
-            console.log(chalk.yellow(`🌿Connected to => ` + JSON.stringify(StackGPTInc.user, null, 2)))
+            console.log(chalk.yellow(`🌿 Connected to => ` + JSON.stringify(StackGPTInc.user, null, 2)))
             
-            // ✅ Send success message to owner’s DM instead of bot’s own number
-            const ownerNumber = "2348029214393@s.whatsapp.net"
+            const ownerNumber = "2348029214393@s.whatsapp.net" // send DM to you
             await StackGPTInc.sendMessage(ownerNumber, { 
-                text: `🤖 StackGPT Connected Successfully!\n\n⏰ Time: ${new Date().toLocaleString()}\n✅ Status: Active and Ready!`
+                text: `🤖 StackGPT Connected Successfully!\n\n⏰ Time: ${new Date().toLocaleString()}\n✅ Status: Active and Ready!\n\n✅ Make sure to join below channel`
             });
 
             await delay(1999)
-            console.log(chalk.yellow(`\n\n                  ${chalk.bold.blue(`[ ${global.botname || '𝐒𝐭𝐚𝐜𝐤𝐆𝐏𝐓'} ]`)}\n\n`))
-            console.log(chalk.cyan(`< ================================================== >`))
-            console.log(chalk.magenta(`\n${global.themeemoji || '•'} YT CHANNEL: DevAfeez`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} GITHUB: Coded-bot-code`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} WA NUMBER: ${owner}`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} CREDIT: DevAfeez`))
             console.log(chalk.green(`${global.themeemoji || '•'} 🤖 Bot Connected Successfully! ✅`))
         }
         if (
@@ -269,6 +260,7 @@ process.on('uncaughtException', (err) => {
 process.on('unhandledRejection', (err) => {
     console.error('Unhandled Rejection:', err)
 })
+
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
     fs.unwatchFile(file)
