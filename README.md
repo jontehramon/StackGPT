@@ -1,7 +1,7 @@
 # StackGPT Bot 
 # All Deployment Errors Fixed & Still Under Maintenance.
 <div align="center">
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=100&pause=1000&color=8A2BE2&center=true&width=1000&height=200&lines=🤖+Welcome+to+StackGPT+Bot;⚡+AI+Powered+WhatsApp+Assistant;🎮+Tech+Cards+%26+Relics+Game+System;📥+Media+Downloaders+%7C+Group+Tools;🌍+Multi-Session+Pairing+Support" alt="Typing SVG" /></a>
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Blogger+Sans+bold&pause=1000&width=435&lines=%F0%9F%A4%96+Welcome+to+StackGPT+Bot;%E2%9A%A1+AI+Powered+WhatsApp+Assistant;%F0%9F%8E%AE+Tech+Cards%2C+Relics+Game+System;%F0%9F%93%A5+Media+Downloaders+Group+Tools;%F0%9F%8C%8D+Multi-Session+Pairing+Support" alt="Typing SVG" /></a>
 </div>
 
 ---
