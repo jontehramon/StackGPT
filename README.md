@@ -91,6 +91,9 @@ npm install
 node index.js
 
 # Scan the QR code with WhatsApp's Linked Devices feature
+
+# Or Start the bot with pairing device
+node index.js --pairing
 ```
 
 ---
